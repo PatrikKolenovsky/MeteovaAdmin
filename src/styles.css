@@ -1,0 +1,7 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn {
+  text-transform: capitalize;
+}

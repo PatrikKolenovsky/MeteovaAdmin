@@ -1,0 +1,100 @@
+<header>
+  <nav class="navbar bg-primary">
+    <h1 class="text-uppercase text-white">admin</h1>
+  </nav>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Admin</a></li>
+      <li class="breadcrumb-item" aria-current="page"><a href="#">{{ActiveContentTitle}}</a></li>
+      <li *ngIf="ActiveContentPostTitle!=''" class="breadcrumb-item"><a
+        href="#">{{ActiveContentPostTitle}}</a></li>
+    </ol>
+  </nav>
+</header>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+      <div class="bg-light border-right">
+        <div id="menu" class="cursor-pointer list-group list-group-flush">
+          <a *ngIf="ActiveContent == 'users'" class="list-group-item list-group-item-action text-white bg-primary">Uživatelé</a>
+          <a *ngIf="ActiveContent != 'users'" (click)="setActiveContent('users')"
+             class="list-group-item list-group-item-action bg-light">Uživatelé</a>
+
+          <a *ngIf="ActiveContent == 'device'" class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
+          <a *ngIf="ActiveContent != 'device'" (click)="setActiveContent('device')"
+             class="list-group-item list-group-item-action bg-light">Zařízení</a>
+
+          <a *ngIf="ActiveContent == 'module'" class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
+          <a *ngIf="ActiveContent != 'module'" (click)="setActiveContent('module')"
+             class="list-group-item list-group-item-action bg-light">Moduly</a>
+
+          <a *ngIf="ActiveContent == 'module_type'" class="list-group-item list-group-item-action text-white bg-primary">Typ
+            modulů</a>
+          <a *ngIf="ActiveContent != 'module_type'" (click)="setActiveContent('module_type')"
+             class="list-group-item list-group-item-action bg-light">Typ
+            modulů</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-10">
+      <div class="jumbotron-fluid border-light border">
+        <div class="m-3 p-3">
+          <div class="row">
+            <div class="col-10">
+              <div *ngIf="ActiveContentPostTitle != ''">
+                <h2>{{ActiveContentPostTitle}}</h2>
+              </div>
+              <div *ng="ActiveContentPostTitle === ''">
+                <h2>{{ActiveContentTitle}}</h2>
+              </div>
+            </div>
+            <div class="col-2">
+              <button *ngIf="ActiveContentPostTitle ==''" class="btn btn-success"
+                      (click)="setActiveContent(ActiveContent + '_add')">
+                + Přidat
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="ActiveContent == 'users'">
+          <app-user-list></app-user-list>
+        </div>
+        <div *ngIf="ActiveContent == 'device'">
+          <app-device-list></app-device-list>
+        </div>
+        <div *ngIf="ActiveContent == 'module'">
+          <app-module-list></app-module-list>
+        </div>
+        <div *ngIf="ActiveContent == 'module_type'">
+          <app-module-type></app-module-type>
+        </div>
+        <div *ngIf="ActiveContent == 'users_add'">
+          <app-add-user></app-add-user>
+        </div>
+        <div *ngIf="ActiveContent == 'device_add'">
+          <app-add-device></app-add-device>
+        </div>
+        <div *ngIf="ActiveContent == 'module_add'">
+          <app-add-module></app-add-module>
+        </div>
+        <div *ngIf="ActiveContent == 'module_type_add'">
+          <app-add-module-type></app-add-module-type>
+        </div>
+        <div *ngIf="ActiveContent == 'users_update'">
+          <app-update-user></app-update-user>
+        </div>
+        <div *ngIf="ActiveContent == 'device_update'">
+          <app-update-device></app-update-device>
+        </div>
+        <div *ngIf="ActiveContent == 'module_update'">
+          <app-update-module></app-update-module>
+        </div>
+        <div *ngIf="ActiveContent == 'module_type_update'">
+          <app-update-module-type></app-update-module-type>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
