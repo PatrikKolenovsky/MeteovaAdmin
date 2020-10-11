@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {UserListComponent} from './list/user-list/user-list.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,11 @@ export class AppComponent {
   ActiveContentTitle = 'Zařízení';
   ActiveContent = 'device';
   ActiveContentPostTitle = '';
+
+  // tslint:disable-next-line:typedef
+  receiveMessage($event) {
+    this.ActiveContent = $event;
+  }
 
   setActiveContent(ActiveContent): void {
     switch (ActiveContent) {

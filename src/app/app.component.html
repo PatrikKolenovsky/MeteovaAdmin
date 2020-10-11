@@ -59,7 +59,9 @@
           </div>
         </div>
         <div *ngIf="ActiveContent == 'users'">
-          <app-user-list [ChildActiveContent]="ActiveContent"></app-user-list>
+          <div>
+            <app-user-list (messageEvent)="receiveMessage($event)"></app-user-list>
+          </div>
         </div>
         <div *ngIf="ActiveContent == 'device'">
           <app-device-list></app-device-list>

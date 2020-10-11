@@ -19,7 +19,6 @@ import { UpdateModuleComponent } from './update/update-module/update-module.comp
 @NgModule({
   declarations: [
     AppComponent,
-    DeviceListComponent,
     ModuleListComponent,
     ModuleTypeComponent,
     UserListComponent,
@@ -30,7 +29,8 @@ import { UpdateModuleComponent } from './update/update-module/update-module.comp
     UpdateModuleTypeComponent,
     UpdateDeviceComponent,
     UpdateUserComponent,
-    UpdateModuleComponent
+    UpdateModuleComponent,
+    DeviceListComponent
   ],
   imports: [
     BrowserModule,
