@@ -29,7 +29,8 @@
           <a *ngIf="ActiveContent != 'module'" (click)="setActiveContent('module')"
              class="list-group-item list-group-item-action bg-light">Moduly</a>
 
-          <a *ngIf="ActiveContent == 'module_type'" class="list-group-item list-group-item-action text-white bg-primary">Typ
+          <a *ngIf="ActiveContent == 'module_type'"
+             class="list-group-item list-group-item-action text-white bg-primary">Typ
             modulů</a>
           <a *ngIf="ActiveContent != 'module_type'" (click)="setActiveContent('module_type')"
              class="list-group-item list-group-item-action bg-light">Typ
@@ -58,7 +59,7 @@
           </div>
         </div>
         <div *ngIf="ActiveContent == 'users'">
-          <app-user-list></app-user-list>
+          <app-user-list [ChildActiveContent]="ActiveContent"></app-user-list>
         </div>
         <div *ngIf="ActiveContent == 'device'">
           <app-device-list></app-device-list>
