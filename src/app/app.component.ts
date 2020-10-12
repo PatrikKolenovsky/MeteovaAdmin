@@ -13,9 +13,8 @@ export class AppComponent {
   ActiveContent = 'device';
   ActiveContentPostTitle = '';
 
-  // tslint:disable-next-line:typedef
-  receiveMessage($event) {
-    this.ActiveContent = $event;
+  receiveMessage($event): void {
+    this.setActiveContent($event);
   }
 
   setActiveContent(ActiveContent): void {
@@ -30,7 +29,7 @@ export class AppComponent {
         this.ActiveContentTitle = 'Zařízení';
         this.ActiveContentPostTitle = '';
         break;
-      case 'module':
+      case '_module':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Moduly';
         this.ActiveContentPostTitle = '';
@@ -50,7 +49,7 @@ export class AppComponent {
         this.ActiveContentTitle = 'Zařízení';
         this.ActiveContentPostTitle = 'Přidat zařízení';
         break;
-      case 'module_add':
+      case '_module_add':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Moduly ';
         this.ActiveContentPostTitle = 'Přidat modul';
@@ -70,7 +69,7 @@ export class AppComponent {
         this.ActiveContentTitle = 'Zařízení';
         this.ActiveContentPostTitle = 'Upravit';
         break;
-      case 'module_update':
+      case '_module_update':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Moduly ';
         this.ActiveContentPostTitle = 'Upravit';

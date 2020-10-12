@@ -17,22 +17,22 @@
     <div class="col-2">
       <div class="bg-light border-right">
         <div id="menu" class="cursor-pointer list-group list-group-flush">
-          <a *ngIf="ActiveContent == 'users'" class="list-group-item list-group-item-action text-white bg-primary">Uživatelé</a>
-          <a *ngIf="ActiveContent != 'users'" (click)="setActiveContent('users')"
+          <a *ngIf="ActiveContent.includes('users')" class="list-group-item list-group-item-action text-white bg-primary">Uživatelé</a>
+          <a *ngIf="!ActiveContent.includes('users')" (click)="setActiveContent('users')"
              class="list-group-item list-group-item-action bg-light">Uživatelé</a>
 
-          <a *ngIf="ActiveContent == 'device'" class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
-          <a *ngIf="ActiveContent != 'device'" (click)="setActiveContent('device')"
+          <a *ngIf="ActiveContent.includes('device')" class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
+          <a *ngIf="!ActiveContent.includes('device')" (click)="setActiveContent('device')"
              class="list-group-item list-group-item-action bg-light">Zařízení</a>
 
-          <a *ngIf="ActiveContent == 'module'" class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
-          <a *ngIf="ActiveContent != 'module'" (click)="setActiveContent('module')"
+          <a *ngIf="ActiveContent.includes('_module')" class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
+          <a *ngIf="!ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
              class="list-group-item list-group-item-action bg-light">Moduly</a>
 
-          <a *ngIf="ActiveContent == 'module_type'"
+          <a *ngIf="ActiveContent.includes('module_type')"
              class="list-group-item list-group-item-action text-white bg-primary">Typ
             modulů</a>
-          <a *ngIf="ActiveContent != 'module_type'" (click)="setActiveContent('module_type')"
+          <a *ngIf="!ActiveContent.includes('module_type')" (click)="setActiveContent('module_type')"
              class="list-group-item list-group-item-action bg-light">Typ
             modulů</a>
         </div>
@@ -66,7 +66,7 @@
         <div *ngIf="ActiveContent == 'device'">
           <app-device-list></app-device-list>
         </div>
-        <div *ngIf="ActiveContent == 'module'">
+        <div *ngIf="ActiveContent == '_module'">
           <app-module-list></app-module-list>
         </div>
         <div *ngIf="ActiveContent == 'module_type'">
@@ -78,7 +78,7 @@
         <div *ngIf="ActiveContent == 'device_add'">
           <app-add-device></app-add-device>
         </div>
-        <div *ngIf="ActiveContent == 'module_add'">
+        <div *ngIf="ActiveContent == '_module_add'">
           <app-add-module></app-add-module>
         </div>
         <div *ngIf="ActiveContent == 'module_type_add'">
@@ -90,7 +90,7 @@
         <div *ngIf="ActiveContent == 'device_update'">
           <app-update-device></app-update-device>
         </div>
-        <div *ngIf="ActiveContent == 'module_update'">
+        <div *ngIf="ActiveContent == '_module_update'">
           <app-update-module></app-update-module>
         </div>
         <div *ngIf="ActiveContent == 'module_type_update'">
