@@ -4,8 +4,9 @@
   </nav>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Admin</a></li>
-      <li class="breadcrumb-item" aria-current="page"><a href="#">{{ActiveContentTitle}}</a></li>
+      <li (click)="setActiveContent('device')" class="breadcrumb-item"><a href="#">Admin</a></li>
+      <li (click)="setActiveContentWithoutAction()" class="breadcrumb-item" aria-current="page"><a
+        href="#">{{ActiveContentTitle}}</a></li>
       <li *ngIf="ActiveContentPostTitle!=''" class="breadcrumb-item"><a
         href="#">{{ActiveContentPostTitle}}</a></li>
     </ol>
@@ -17,23 +18,26 @@
     <div class="col-2">
       <div class="bg-light border-right">
         <div id="menu" class="cursor-pointer list-group list-group-flush">
-          <a *ngIf="ActiveContent.includes('users')" class="list-group-item list-group-item-action text-white bg-primary">Uživatelé</a>
+          <a *ngIf="ActiveContent.includes('users')"
+             class="list-group-item list-group-item-action text-white bg-primary">Uživatelé</a>
           <a *ngIf="!ActiveContent.includes('users')" (click)="setActiveContent('users')"
              class="list-group-item list-group-item-action bg-light">Uživatelé</a>
 
-          <a *ngIf="ActiveContent.includes('device')" class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
+          <a *ngIf="ActiveContent.includes('device')"
+             class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
           <a *ngIf="!ActiveContent.includes('device')" (click)="setActiveContent('device')"
              class="list-group-item list-group-item-action bg-light">Zařízení</a>
 
-          <a *ngIf="ActiveContent.includes('_module')" class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
+          <a *ngIf="ActiveContent.includes('_module')"
+             class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
           <a *ngIf="!ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
              class="list-group-item list-group-item-action bg-light">Moduly</a>
 
           <a *ngIf="ActiveContent.includes('module_type')"
-             class="list-group-item list-group-item-action text-white bg-primary">Typ
+             class="list-group-item list-group-item-action text-white bg-primary">Typy
             modulů</a>
           <a *ngIf="!ActiveContent.includes('module_type')" (click)="setActiveContent('module_type')"
-             class="list-group-item list-group-item-action bg-light">Typ
+             class="list-group-item list-group-item-action bg-light">Type
             modulů</a>
         </div>
       </div>

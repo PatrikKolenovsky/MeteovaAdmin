@@ -17,6 +17,19 @@ export class AppComponent {
     this.setActiveContent($event);
   }
 
+  setActiveContentWithoutAction(): void {
+    const content = this.ActiveContent;
+    if (content.includes('add')) {
+      const activeContent = content.replace('_add', '');
+      this.setActiveContent(activeContent);
+    } else if (content.includes('update')) {
+      const activeContent = content.replace('_update', '');
+      this.setActiveContent(activeContent);
+    } else {
+      this.setActiveContent(content);
+    }
+  }
+
   setActiveContent(ActiveContent): void {
     switch (ActiveContent) {
       case 'users':
@@ -56,28 +69,28 @@ export class AppComponent {
         break;
       case 'module_type_add':
         this.ActiveContent = ActiveContent;
-        this.ActiveContentTitle = 'Typ modulu';
+        this.ActiveContentTitle = 'Typy modulu';
         this.ActiveContentPostTitle = 'Přidat typ modulu';
         break;
       case 'users_update':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Uživatelé';
-        this.ActiveContentPostTitle = 'Upravit';
+        this.ActiveContentPostTitle = 'Upravit uživatele';
         break;
       case 'device_update':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Zařízení';
-        this.ActiveContentPostTitle = 'Upravit';
+        this.ActiveContentPostTitle = 'Upravit zařízení';
         break;
       case '_module_update':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Moduly ';
-        this.ActiveContentPostTitle = 'Upravit';
+        this.ActiveContentPostTitle = 'Upravit modul';
         break;
       case 'module_type_update':
         this.ActiveContent = ActiveContent;
-        this.ActiveContentTitle = 'Typ modulu';
-        this.ActiveContentPostTitle = 'Upravit';
+        this.ActiveContentTitle = 'Typy modulu';
+        this.ActiveContentPostTitle = 'Upravit modul';
         break;
     }
   }
