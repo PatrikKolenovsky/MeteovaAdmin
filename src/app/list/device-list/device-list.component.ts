@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-device-list',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./device-list.component.css']
 })
 export class DeviceListComponent implements OnInit {
+  @Output() messageEvent = new EventEmitter<string>();
 
-  constructor() { }
+  Content = '';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  setActiveContent(ActiveContent): void {
+    this.Content = 'device' + ActiveContent;
+    this.messageEvent.emit(this.Content);
+  }
 }

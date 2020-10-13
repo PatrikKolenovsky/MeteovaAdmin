@@ -90,7 +90,7 @@ export class AppComponent {
       case 'module_type_update':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Typy modulu';
-        this.ActiveContentPostTitle = 'Upravit modul';
+        this.ActiveContentPostTitle = 'Upravit typ modulu';
         break;
     }
   }

@@ -18,22 +18,22 @@
     <div class="col-2">
       <div class="bg-light border-right">
         <div id="menu" class="cursor-pointer list-group list-group-flush">
-          <a *ngIf="ActiveContent.includes('users')"
+          <a *ngIf="ActiveContent.includes('users')" (click)="setActiveContent('users')"
              class="list-group-item list-group-item-action text-white bg-primary">Uživatelé</a>
           <a *ngIf="!ActiveContent.includes('users')" (click)="setActiveContent('users')"
              class="list-group-item list-group-item-action bg-light">Uživatelé</a>
 
-          <a *ngIf="ActiveContent.includes('device')"
+          <a *ngIf="ActiveContent.includes('device')" (click)="setActiveContent('device')"
              class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
           <a *ngIf="!ActiveContent.includes('device')" (click)="setActiveContent('device')"
              class="list-group-item list-group-item-action bg-light">Zařízení</a>
 
-          <a *ngIf="ActiveContent.includes('_module')"
+          <a *ngIf="ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
              class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
           <a *ngIf="!ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
              class="list-group-item list-group-item-action bg-light">Moduly</a>
 
-          <a *ngIf="ActiveContent.includes('module_type')"
+          <a *ngIf="ActiveContent.includes('module_type')" (click)="setActiveContent('module_type')"
              class="list-group-item list-group-item-action text-white bg-primary">Typy
             modulů</a>
           <a *ngIf="!ActiveContent.includes('module_type')" (click)="setActiveContent('module_type')"
@@ -68,13 +68,13 @@
           </div>
         </div>
         <div *ngIf="ActiveContent == 'device'">
-          <app-device-list></app-device-list>
+          <app-device-list (messageEvent)="receiveMessage($event)"></app-device-list>
         </div>
         <div *ngIf="ActiveContent == '_module'">
-          <app-module-list></app-module-list>
+          <app-module-list (messageEvent)="receiveMessage($event)"></app-module-list>
         </div>
         <div *ngIf="ActiveContent == 'module_type'">
-          <app-module-type></app-module-type>
+          <app-module-type (messageEvent)="receiveMessage($event)"></app-module-type>
         </div>
         <div *ngIf="ActiveContent == 'users_add'">
           <app-add-user></app-add-user>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-module-list',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModuleListComponent implements OnInit {
 
+  @Output() messageEvent = new EventEmitter<string>();
+
+  Content = '';
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  setActiveContent(ActiveContent): void {
+    this.Content = '_module' + ActiveContent;
+    this.messageEvent.emit(this.Content);
   }
 
 }

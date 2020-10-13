@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-module-type',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModuleTypeComponent implements OnInit {
 
-  constructor() { }
+  @Output() messageEvent = new EventEmitter<string>();
 
-  ngOnInit(): void {
+  Content = '';
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  setActiveContent(ActiveContent): void {
+    this.Content = 'module_type' + ActiveContent;
+    this.messageEvent.emit(this.Content);
   }
-
 }

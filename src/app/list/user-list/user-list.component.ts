@@ -12,8 +12,7 @@ export class UserListComponent {
 
   Content = '';
 
-  constructor() {
-  }
+  constructor() {}
 
   setActiveContent(ActiveContent): void {
     this.Content = 'users' + ActiveContent;
