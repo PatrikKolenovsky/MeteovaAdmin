@@ -5,5 +5,5 @@ export interface RestApi {
   read(id: number): any;
   update(input: any): void;
   delete(id: number): void;
-  readAll(): Observable<any[]>;
+  readAll(): any[];
 }
