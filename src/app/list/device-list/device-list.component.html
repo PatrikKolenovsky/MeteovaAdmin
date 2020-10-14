@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" *ngIf="deviceData">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -9,75 +9,27 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Alšovo náměstí 604/3, Ostrava 708 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
+  <tr *ngFor="let device of deviceData">
+    <th scope="row">{{device.deviceId}}</th>
+    <td>{{device.device_location}}</td>
+    <td *ngIf="!device.module">
+      <div *ngFor="let module of device.module">
+        <a href="#">{{module.name}}</a><br>
+      </div>
+    </td>
+    <td *ngIf="device.module">
+      <div>Žádné moduly</div>
+    </td>
     <td>1</td>
     <td>
       <div class="btn btn-danger mr-3">smazat</div>
       <div class="btn btn-primary" (click)="setActiveContent('_update')">upravit</div>
     </td>
   </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Alšovo náměstí 604/4, Ostrava 709 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
-    <td>1</td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Alšovo náměstí 604/3, Ostrava 708 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
-    <td>1</td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">4</th>
-    <td>Alšovo náměstí 604/3, Ostrava 708 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
-    <td>1</td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">5</th>
-    <td>Alšovo náměstí 604/3, Ostrava 708 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
-    <td>1</td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">6</th>
-    <td>Alšovo náměstí 604/3, Ostrava 708 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
-    <td>1</td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">7</th>
-    <td>Alšovo náměstí 604/3, Ostrava 708 00</td>
-    <td><a href="#">Modul1</a>, <a href="#">Modul2</a></td>
-    <td>1</td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
   </tbody>
 </table>
+<div *ngIf="!deviceData">
+  <p>
+    Žádne data k dispozici
+  </p>
+</div>

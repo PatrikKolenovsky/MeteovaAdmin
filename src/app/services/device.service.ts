@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {RestApi} from '../rest-api';
 import {RestApiService} from './rest-api.service';
 import {Device} from '../model/device.model';
 import {HttpClient} from '@angular/common/http';
@@ -10,7 +9,7 @@ import {Observable} from 'rxjs';
 })
 export class DeviceService {
 
-  HTTP_API_PATH = RestApiService.HTTP_API_PATH + '/device';
+  HTTP_API_PATH = RestApiService.HTTP_API_PATH + 'device';
 
   constructor(private http: HttpClient) {
   }
@@ -21,11 +20,11 @@ export class DeviceService {
   }
 
   delete(id: number): void {
-    this.http.post<any>(this.HTTP_API_PATH , {id}).subscribe();
+    this.http.post<any>(this.HTTP_API_PATH, {id}).subscribe();
   }
 
-  readAll(): Observable<Device[]>  {
-    return this.http.get<Device[]>(this.HTTP_API_PATH);
+  readAll(): any {
+    return this.http.get<Array<Device>>(this.HTTP_API_PATH);
   }
 
   read(id: number): Observable<Device> {

@@ -15,6 +15,7 @@ import { UpdateModuleTypeComponent } from './update/update-module-type/update-mo
 import { UpdateDeviceComponent } from './update/update-device/update-device.component';
 import { UpdateUserComponent } from './update/update-user/update-user.component';
 import { UpdateModuleComponent } from './update/update-module/update-module.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpdateModuleComponent } from './update/update-module/update-module.comp
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
