@@ -27,14 +27,13 @@ export class DeviceListComponent implements OnInit {
       );
   }
 
-  setActiveContent(ActiveContent): void {
-    this.Content = 'device' + ActiveContent;
+  setActiveContent(ActiveContent, id): void {
+    let Content = 'device' + ActiveContent;
+    if (id) {
+      Content = Content + '?id=' + id;
+    }
+    this.Content = Content;
     this.messageEvent.emit(this.Content);
   }
-
-  // ngAfterViewInit(): void {
-  //   this.deviceData = this.deviceService.readAll();
-  // }
-
 
 }

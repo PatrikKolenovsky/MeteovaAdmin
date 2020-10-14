@@ -12,8 +12,15 @@ export class AppComponent {
   ActiveContentTitle = 'Zařízení';
   ActiveContent = 'device';
   ActiveContentPostTitle = '';
+  ActiveObjectId = 0;
 
   receiveMessage($event): void {
+    if ($event.includes('?id=')) {
+      const split = $event.split('?id=');
+      $event = split[0];
+      this.ActiveObjectId = Number(split[1]);
+      console.log(this.ActiveObjectId);
+    }
     this.setActiveContent($event);
   }
 
