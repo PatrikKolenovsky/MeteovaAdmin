@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" *ngIf="moduleTypeData">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -8,10 +8,14 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Typ 1</td>
-    <td><a href="#">NVIDIA</a></td>
+<!--  "moduleTypeId": 1,-->
+<!--  "name": "Module Type A",-->
+<!--  "description": "Pěkný malý modul",-->
+<!--  "maker": null-->
+  <tr *ngFor="let moduleType of moduleTypeData">
+    <th scope="row">{{moduleType.moduleTypeId}}</th>
+    <td>{{moduleType.name}}</td>
+    <td><a href="#">{{moduleType.maker}}TODO</a></td>
     <td>
       <div class="btn btn-danger mr-3">smazat</div>
       <div class="btn btn-primary" (click)="setActiveContent('_update')">upravit</div>
@@ -19,3 +23,8 @@
   </tr>
   </tbody>
 </table>
+<div *ngIf="!moduleTypeData">
+  <p>
+    Žádne data k dispozici
+  </p>
+</div>
