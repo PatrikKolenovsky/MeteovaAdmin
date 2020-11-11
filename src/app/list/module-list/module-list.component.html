@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" *ngIf="moduleData">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -10,45 +10,20 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Esp 32</td>
-    <td><a href="#">Typ 1</a></td>
-    <td><a href="#">Zařízení 1</a></td>
+  <tr *ngFor="let module of moduleData">
+    <th scope="row">{{module.moduleId}}</th>
+    <td>{{module.name}}</td>
+    <td><a href="#">TODO</a></td>
+    <td><a href="#">TODO</a></td>
     <td>
       <div class="btn btn-danger mr-3">smazat</div>
       <div class="btn btn-primary" (click)="setActiveContent('_update')">upravit</div>
     </td>
   </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Esp 32</td>
-    <td><a href="#">Typ 1</a></td>
-    <td><a href="#">Zařízení 1</a></td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Esp 32</td>
-    <td><a href="#">Typ 1</a></td>
-    <td><a href="#">Zařízení 1</a></td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">4</th>
-    <td>Esp 32</td>
-    <td><a href="#">Typ 1</a></td>
-    <td><a href="#">Zařízení 1</a></td>
-    <td>
-      <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary">upravit</div>
-    </td>
-  </tr>
   </tbody>
 </table>
+<div *ngIf="!moduleData">
+  <p>
+    Žádne data k dispozici
+  </p>
+</div>
