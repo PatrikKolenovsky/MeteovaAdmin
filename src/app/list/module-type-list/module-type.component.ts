@@ -28,8 +28,12 @@ export class ModuleTypeComponent implements OnInit {
       );
   }
 
-  setActiveContent(ActiveContent): void {
-    this.Content = 'module_type' + ActiveContent;
+  setActiveContent(ActiveContent, id): void {
+    let Content = 'module_type' + ActiveContent;
+    if (id) {
+      Content = Content + '?id=' + id;
+    }
+    this.Content = Content;
     this.messageEvent.emit(this.Content);
   }
 }

@@ -11,7 +11,7 @@
   <tbody>
   <tr *ngFor="let device of deviceData">
     <th scope="row">{{device.deviceId}}</th>
-    <td>{{device.device_location}}</td>
+    <td>{{device.device_location}}TODO</td>
     <td *ngIf="!device.module">
       <div *ngFor="let module of device.module">
         <a href="#">{{module.name}}</a><br>

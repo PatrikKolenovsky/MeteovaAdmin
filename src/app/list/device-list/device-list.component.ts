@@ -9,6 +9,7 @@ import {observable, Observable} from 'rxjs';
   styleUrls: ['./device-list.component.css']
 })
 export class DeviceListComponent implements OnInit {
+
   @Output() messageEvent = new EventEmitter<string>();
 
   Content = '';
