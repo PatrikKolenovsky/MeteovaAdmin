@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Module} from '../../model/module';
+import {ModuleService} from '../../services/module.service';
 
 @Component({
   selector: 'app-add-device',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDeviceComponent implements OnInit {
 
-  constructor() { }
+
+  Content = '';
+  moduleData: Array<Module> = [];
+
+  constructor(private moduleService: ModuleService) { }
 
   ngOnInit(): void {
+    this.moduleService.readAll()
+      .subscribe(
+        (moduleData: Array<Module>) => this.moduleData = moduleData,
+        (error) => console.log(error),
+        () => {
+        }
+      );
   }
 
 }
