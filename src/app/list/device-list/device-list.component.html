@@ -1,4 +1,5 @@
 <table class="table" *ngIf="deviceData">
+
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -11,13 +12,13 @@
   <tbody>
   <tr *ngFor="let device of deviceData">
     <th scope="row">{{device.deviceId}}</th>
-    <td>{{device.device_location}}TODO</td>
-    <td *ngIf="!device.module">
+    <td>{{device.address}}</td>
+    <td *ngIf="device.module.length > 0">
       <div *ngFor="let module of device.module">
         <a href="#">{{module.name}}</a><br>
       </div>
     </td>
-    <td *ngIf="device.module">
+    <td *ngIf="device.module.length === 0">
       <div>Žádné moduly</div>
     </td>
     <td>1</td>

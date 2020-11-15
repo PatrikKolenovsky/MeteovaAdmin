@@ -11,6 +11,7 @@ export class AddDeviceComponent implements OnInit {
 
 
   Content = '';
+  connectionOption = '';
   moduleData: Array<Module> = [];
 
   constructor(private moduleService: ModuleService) { }
@@ -23,6 +24,10 @@ export class AddDeviceComponent implements OnInit {
         () => {
         }
       );
+  }
+
+  setConnectionOption(option): void{
+    this.connectionOption = option;
   }
 
 }

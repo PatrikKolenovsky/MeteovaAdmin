@@ -24,7 +24,7 @@ export class DeviceService {
   }
 
   readAll(): any {
-    return this.http.get<Array<Device>>(this.HTTP_API_PATH);
+    return this.http.get<Array<Device>>(this.HTTP_API_PATH + '/detail');
   }
 
   read(id: number): Observable<Device> {

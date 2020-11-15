@@ -11,7 +11,7 @@
   <tr *ngFor="let moduleType of moduleTypeData">
     <th scope="row">{{moduleType.moduleTypeId}}</th>
     <td>{{moduleType.name}}</td>
-    <td><a href="#">{{moduleType.maker}}TODO</a></td>
+    <td><a href="#">{{moduleType.maker.name}}</a></td>
     <td>
       <div class="btn btn-danger mr-3">smazat</div>
       <div class="btn btn-primary" (click)="setActiveContent('_update', moduleType.moduleTypeId)">upravit</div>
