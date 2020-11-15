@@ -15,7 +15,7 @@
     <td>{{device.address}}</td>
     <td *ngIf="device.module.length > 0">
       <div *ngFor="let module of device.module">
-        <a href="#">{{module.name}}</a><br>
+        <a href="#" (click)="setActiveContent('_update', '_module', module.moduleId)">{{module.name}}</a><br>
       </div>
     </td>
     <td *ngIf="device.module.length === 0">
@@ -24,7 +24,7 @@
     <td>1</td>
     <td>
       <div class="btn btn-danger mr-3">smazat</div>
-      <div class="btn btn-primary" (click)="setActiveContent('_update', device.deviceId)">upravit</div>
+      <div class="btn btn-primary" (click)="setActiveContent('_update', 'device', device.deviceId)">upravit</div>
     </td>
   </tr>
   </tbody>

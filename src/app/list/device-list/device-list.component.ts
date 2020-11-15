@@ -28,11 +28,13 @@ export class DeviceListComponent implements OnInit {
       );
   }
 
-  setActiveContent(ActiveContent, id): void {
-    let Content = 'device' + ActiveContent;
+  setActiveContent(ActiveContent, contentType, id): void {
+    let Content = contentType + ActiveContent;
+
     if (id) {
       Content = Content + '?id=' + id;
     }
+
     this.Content = Content;
     this.messageEvent.emit(this.Content);
   }

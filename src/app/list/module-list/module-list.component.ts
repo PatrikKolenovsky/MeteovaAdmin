@@ -28,8 +28,8 @@ export class ModuleListComponent implements OnInit {
       );
   }
 
-  setActiveContent(ActiveContent, id): void {
-    let Content = '_module' + ActiveContent;
+  setActiveContent(ActiveContent, contentType, id): void {
+    let Content = contentType + ActiveContent;
     if (id) {
       Content = Content + '?id=' + id;
     }

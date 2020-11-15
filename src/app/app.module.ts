@@ -16,6 +16,8 @@ import { UpdateDeviceComponent } from './update/update-device/update-device.comp
 import { UpdateUserComponent } from './update/update-user/update-user.component';
 import { UpdateModuleComponent } from './update/update-module/update-module.component';
 import {HttpClientModule} from '@angular/common/http';
+import { MakerListComponent } from './list/maker-list/maker-list.component';
+import { AddMakerComponent } from './add/add-maker/add-maker.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {HttpClientModule} from '@angular/common/http';
     UpdateDeviceComponent,
     UpdateUserComponent,
     UpdateModuleComponent,
-    DeviceListComponent
+    DeviceListComponent,
+    MakerListComponent,
+    AddMakerComponent
   ],
   imports: [
     BrowserModule,
