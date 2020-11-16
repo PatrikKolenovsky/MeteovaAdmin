@@ -58,6 +58,11 @@ export class AddDeviceComponent implements OnInit {
   }
 
   submitForm(): void {
-    this.deviceService.create(this.addDeviceForm.value);
+    this.postForm(this.addDeviceForm.value);
+  }
+
+  postForm(formValues): void {
+    this.setActiveContent('device', '');
+    this.deviceService.create(formValues);
   }
 }

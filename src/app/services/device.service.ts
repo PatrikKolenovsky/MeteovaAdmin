@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {RestApiService} from './rest-api.service';
 import {Device} from '../model/device.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +20,10 @@ export class DeviceService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-    this.http.post(this.HTTP_API_PATH, input, httpOptions).subscribe(results => {
-      console.log(results);
-    });
-
-    // this.http.post<any>(this.HTTP_API_PATH, {input}, {headers: new HttpHeaders({'Content-Type': 'text/json'})})
-    //   .subscribe(
-    //     (res) => console.log(res),
-    //     (err) => console.log(err)
-    //   );
+    const ret = this.http.post(this.HTTP_API_PATH, input, httpOptions).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
 
   delete(id: number): void {
