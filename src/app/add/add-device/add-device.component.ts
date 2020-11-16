@@ -26,8 +26,8 @@ export class AddDeviceComponent implements OnInit {
       );
   }
 
-  setConnectionOption(option): void{
-    this.connectionOption = option;
+  selectChangeHandler(event: any): void  {
+    this.connectionOption = event.target.value;
   }
 
 }

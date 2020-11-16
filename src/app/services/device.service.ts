@@ -28,7 +28,7 @@ export class DeviceService {
   }
 
   read(id: number): Observable<Device> {
-    return this.http.get<Device>(this.HTTP_API_PATH + '/' + id);
+    return this.http.get<Device>(this.HTTP_API_PATH + '/detail/' + id);
   }
 
 }

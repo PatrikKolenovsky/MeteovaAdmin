@@ -11,10 +11,12 @@ import {ModuleService} from '../../services/module.service';
 })
 export class UpdateDeviceComponent implements OnInit {
   @Input() activeDeviceId: number;
+  connectionOption = '';
   device: Device;
   moduleData: Array<Module> = [];
 
-  constructor(private deviceService: DeviceService, private moduleService: ModuleService) { }
+  constructor(private deviceService: DeviceService, private moduleService: ModuleService) {
+  }
 
   ngOnInit(): void {
     this.deviceService.read(this.activeDeviceId)
@@ -34,4 +36,7 @@ export class UpdateDeviceComponent implements OnInit {
       );
   }
 
+  selectChangeHandler(event: any): void {
+    this.connectionOption = event.target.value;
+  }
 }
