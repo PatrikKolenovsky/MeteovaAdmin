@@ -1,6 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Module} from '../../model/module';
 import {ModuleService} from '../../services/module.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Device} from '../../model/device.model';
+import {DeviceService} from '../../services/device.service';
+
 
 @Component({
   selector: 'app-add-device',
@@ -13,8 +17,25 @@ export class AddDeviceComponent implements OnInit {
   Content = '';
   connectionOption = '';
   moduleData: Array<Module> = [];
+  addDeviceForm: FormGroup;
 
-  constructor(private moduleService: ModuleService) { }
+  constructor(private deviceService: DeviceService, private moduleService: ModuleService,
+              // private afs: AngularFirestore,
+              public fb: FormBuilder
+  ) {
+
+    this.addDeviceForm = this.fb.group({
+      DeviceName: [''],
+      Ip: [''],
+      Port: [],
+      ComServIp: [''],
+      ComServPort: [],
+      Latitude: [],
+      Longitude: [],
+      Address: [''],
+      Description: [''],
+    });
+  }
 
   ngOnInit(): void {
     this.moduleService.readAll()
@@ -26,7 +47,7 @@ export class AddDeviceComponent implements OnInit {
       );
   }
 
-  selectChangeHandler(event: any): void  {
+  selectChangeHandler(event: any): void {
     this.connectionOption = event.target.value;
   }
 
@@ -34,5 +55,9 @@ export class AddDeviceComponent implements OnInit {
   setActiveContent(ActiveContent, contentType): void {
     this.Content = ActiveContent + contentType;
     this.messageEvent.emit(this.Content);
+  }
+
+  submitForm(): void {
+    this.deviceService.create(this.addDeviceForm.value);
   }
 }

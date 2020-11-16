@@ -18,6 +18,7 @@ import { UpdateModuleComponent } from './update/update-module/update-module.comp
 import {HttpClientModule} from '@angular/common/http';
 import { MakerListComponent } from './list/maker-list/maker-list.component';
 import { AddMakerComponent } from './add/add-maker/add-maker.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AddMakerComponent } from './add/add-maker/add-maker.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

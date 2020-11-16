@@ -1,28 +1,48 @@
-<form class="ml-3 col-6">
+<form class="ml-3 col-6" [formGroup]="addDeviceForm" (ngSubmit)="submitForm()">
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="DeviceName" placeholder="Název zařízení">
+      <input type="text" class="form-control" id="DeviceName" formControlName="DeviceName" placeholder="Název zařízení">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="Ip" placeholder="Ip adresa">
+      <input type="text" class="form-control" id="Ip" formControlName="Ip" placeholder="Ip adresa">
     </div>
     <small class="form-text text-muted">Např. 127.0.0.0</small>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="Port" placeholder="Port">
+      <input type="number" class="form-control" id="Port" formControlName="Port" placeholder="Port">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="ComServPort" placeholder="ComServPort">
+      <input type="text" class="form-control" id="ComServIp" formControlName="ComServIp" placeholder="ComServIp">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <textarea type="text" class="form-control" id="Description" placeholder="Popis"></textarea>
+      <input type="number" class="form-control" id="ComServPort" formControlName="ComServPort" placeholder="ComServPort">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-2">
+      <input type="number" class="form-control" id="Latitude" formControlName="Latitude" placeholder="Latitude">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-2">
+      <input type="number" class="form-control" id="Longitude" formControlName="Longitude" placeholder="Longitude">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" id="Address" formControlName="Address" placeholder="Adresa">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-2">
+      <textarea type="text" class="form-control" id="Description" formControlName="Description" placeholder="Popis"></textarea>
     </div>
   </div>
   <div class="form-group">
@@ -37,7 +57,6 @@
       + Přidat modul
     </div>
   </div>
-
 
   <div class="form-group">
     <select (click)="selectChangeHandler($event)" class="form-control" id="Connection" required>
