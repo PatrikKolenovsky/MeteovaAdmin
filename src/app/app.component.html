@@ -80,7 +80,7 @@
           <app-add-user></app-add-user>
         </div>
         <div *ngIf="ActiveContent == 'device_add'">
-          <app-add-device></app-add-device>
+          <app-add-device (messageEvent)="receiveMessage($event)"></app-add-device>
         </div>
         <div *ngIf="ActiveContent == '_module_add'">
           <app-add-module></app-add-module>

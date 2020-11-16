@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Device} from '../../model/device.model';
 import {DeviceService} from '../../services/device.service';
 import {Module} from '../../model/module';
@@ -11,6 +11,9 @@ import {ModuleService} from '../../services/module.service';
 })
 export class UpdateDeviceComponent implements OnInit {
   @Input() activeDeviceId: number;
+  @Output() messageEvent = new EventEmitter<string>();
+
+  Content = '';
   connectionOption = '';
   device: Device;
   moduleData: Array<Module> = [];
@@ -38,5 +41,10 @@ export class UpdateDeviceComponent implements OnInit {
 
   selectChangeHandler(event: any): void {
     this.connectionOption = event.target.value;
+  }
+
+  setActiveContent(ActiveContent, contentType): void {
+    this.Content = contentType + ActiveContent;
+    this.messageEvent.emit(this.Content);
   }
 }

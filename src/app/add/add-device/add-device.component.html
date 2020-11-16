@@ -32,7 +32,12 @@
         <input type="checkbox" value="{{module.moduleId}}"> {{module.name}}
       </label>
     </div>
+    <div class="btn btn-link"
+            (click)="setActiveContent('_module', '_add')">
+      + Přidat modul
+    </div>
   </div>
+
 
   <div class="form-group">
     <select (click)="selectChangeHandler($event)" class="form-control" id="Connection" required>

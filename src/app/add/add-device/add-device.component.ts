@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Module} from '../../model/module';
 import {ModuleService} from '../../services/module.service';
 
@@ -9,7 +9,7 @@ import {ModuleService} from '../../services/module.service';
 })
 export class AddDeviceComponent implements OnInit {
 
-
+  @Output() messageEvent = new EventEmitter<string>();
   Content = '';
   connectionOption = '';
   moduleData: Array<Module> = [];
@@ -30,4 +30,9 @@ export class AddDeviceComponent implements OnInit {
     this.connectionOption = event.target.value;
   }
 
+
+  setActiveContent(ActiveContent, contentType): void {
+    this.Content = ActiveContent + contentType;
+    this.messageEvent.emit(this.Content);
+  }
 }
