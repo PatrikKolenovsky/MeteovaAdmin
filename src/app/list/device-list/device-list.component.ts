@@ -39,4 +39,8 @@ export class DeviceListComponent implements OnInit {
     this.messageEvent.emit(this.Content);
   }
 
+  deleteById(id): void {
+    this.deviceService.delete(id);
+  }
+
 }

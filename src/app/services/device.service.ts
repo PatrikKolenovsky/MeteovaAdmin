@@ -35,7 +35,7 @@ export class DeviceService {
   }
 
   delete(id: number): void {
-    this.http.post<any>(this.HTTP_API_PATH, {id}).subscribe();
+    this.http.delete<any>(this.HTTP_API_PATH + '/' + {id}, ).subscribe();
   }
 
   readAll(): any {
