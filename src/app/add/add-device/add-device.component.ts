@@ -51,55 +51,19 @@ export class AddDeviceComponent implements OnInit {
     this.connectionOption = event.target.value;
   }
 
-
   setActiveContent(ActiveContent, contentType): void {
     this.Content = ActiveContent + contentType;
     this.messageEvent.emit(this.Content);
   }
 
   submitForm(): void {
-    this.postForm(() => {this.setActiveContent('device', ''); }, this.addDeviceForm.value);
+    this.postForm(() => {
+      this.setActiveContent('device', '');
+    }, this.addDeviceForm.value);
   }
 
   postForm(setActiveContent, formValues): void {
-    this.deviceService.create(formValues);
-    setActiveContent();
+    this.deviceService.create(() => { setActiveContent(); }, formValues);
   }
-  // ngOnInit() {
-  //
-  //   this.functionNr1(() => {console.log("DO something in callBackFunction();")} );
-  //
-  // }
-  //
-  // functionNr1(callBackFunction) {
-  //   this.functionNr2();
-  //   console.log("Hello 1 from functionNr1 ["+new Date()+"]");
-  //   callBackFunction();
-  //   console.log("Hello 2 from functionNr1 ["+new Date()+"]");
-  // }
-  //
-  //
-  // functionNr2() {
-  //
-  //   var num:number = 0
-  //   var count1:number = 0;
-  //   var count:number = 0;
-  //
-  //   console.log("START: functionNr2 ["+new Date()+"]");
-  //   for(num=0;num<=2000000000;num++) {
-  //     if (num % 2 == 0) {
-  //       count1 = count1 + 2;
-  //     }
-  //     if (num % 3 == 0) {
-  //       count1 = count1 + 2;
-  //     }
-  //     if (num % 4 == 0) {
-  //       count1 = count1 - 2;
-  //     }
-  //     count++;
-  //   }
-  //   console.log("END: functionNr2 ["+new Date()+"]");
-  //
-  // }
 }
 

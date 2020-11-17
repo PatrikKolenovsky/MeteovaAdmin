@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {RestApiService} from './rest-api.service';
 import {Device} from '../model/device.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, Subscription} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
+import {ok} from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,21 @@ export class DeviceService {
   }
 
 
-  create(input: any): void {
+  create(callback, input: any): any {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-    const ret = this.http.post(this.HTTP_API_PATH, input, httpOptions).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
+    this.http.post(this.HTTP_API_PATH, input, httpOptions).subscribe(
+      (res) => {
+        callback();
+        return res;
+      },
+      (error) => {
+        console.log('request is Bad : msg' + error.toString());
+        alert('Chyba při vytváření zařízení');
+        return throwError(error);
+      }
     );
   }
 
