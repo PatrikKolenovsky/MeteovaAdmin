@@ -11,7 +11,7 @@ import {isAsciiLetter} from 'codelyzer/angular/styles/chars';
   templateUrl: './update-device.component.html',
   styleUrls: ['./update-device.component.css']
 })
-export class UpdateDeviceComponent implements OnInit{
+export class UpdateDeviceComponent implements OnInit {
   @Input() activeDeviceId: number;
   @Output() messageEvent = new EventEmitter<string>();
 
@@ -54,16 +54,16 @@ export class UpdateDeviceComponent implements OnInit{
   ngOnInit(): void {
     this.setComponentData(() => {
       this.updateDeviceForm = this.fb.group({
-        DeviceName: [this.device.deviceName],
-        Ip: [this.device.ip],
-        Port: [this.device.port],
-        ComServIp: [this.device.comServIp],
-        ComServPort: [this.device.comServPort],
-        Latitude: [this.device.latitude],
-        Longitude: [this.device.longitude],
-        Address: [this.device.address],
-        InUse: [this.device.inUse],
-        Description: [this.device.description],
+        deviceName: [this.device.deviceName],
+        ip: [this.device.ip],
+        port: [this.device.port],
+        comServIp: [this.device.comServIp],
+        comServPort: [this.device.comServPort],
+        latitude: [this.device.latitude],
+        longitude: [this.device.longitude],
+        address: [this.device.address],
+        inUse: [this.device.inUse],
+        description: [this.device.description],
       });
     }, () => {
       // Module: [''],
@@ -86,6 +86,8 @@ export class UpdateDeviceComponent implements OnInit{
   }
 
   postForm(setActiveContent, formValues): void {
-    this.deviceService.update(() => { setActiveContent(); }, formValues, this.activeDeviceId);
+    this.deviceService.update(() => {
+      setActiveContent();
+    }, formValues, this.activeDeviceId);
   }
 }

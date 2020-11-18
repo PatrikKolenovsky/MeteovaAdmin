@@ -96,7 +96,8 @@
                              (messageEvent)="receiveMessage($event)"></app-update-device>
         </div>
         <div *ngIf="ActiveContent == '_module_update'">
-          <app-update-module [activeModuleId]=ActiveObjectId></app-update-module>
+          <app-update-module [activeModuleId]=ActiveObjectId
+                             (messageEvent)="receiveMessage($event)"></app-update-module>
         </div>
         <div *ngIf="ActiveContent == 'module_type_update'">
           <app-update-module-type [activeModuleTypeId]=ActiveObjectId></app-update-module-type>

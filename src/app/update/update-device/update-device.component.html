@@ -5,85 +5,85 @@
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="DeviceName" class="pt-2 mr-2">
+        <label for="deviceName" class="pt-2 mr-2">
           <b> Název zařízení: </b>
         </label>
         <input type="text"
                class="form-control"
-               id="DeviceName"
-               formControlName="DeviceName"
+               id="deviceName"
+               formControlName="deviceName"
                placeholder="Název zařízení"
                value="{{device.deviceName}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="Ip" class="pt-2 mr-2">
+        <label for="ip" class="pt-2 mr-2">
           <b> Ip adresa: </b>
         </label>
-        <input type="text" class="form-control" id="Ip" formControlName="Ip" placeholder="Ip adresa"
+        <input type="text" class="form-control" id="ip" formControlName="ip" placeholder="ip adresa"
                                        value="{{device.ip}}">
       </div>
       <small class="form-text text-muted">Např. 127.0.0.0</small>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="Port" class="pt-2 mr-2">
-          <b> Port: </b>
+        <label for="port" class="pt-2 mr-2">
+          <b> port: </b>
         </label>
-        <input type="number" class="form-control" id="Port" formControlName="Port" placeholder="Port"
+        <input type="number" class="form-control" id="port" formControlName="port" placeholder="port"
                value="{{device.port}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="ComServIp" class="pt-2 mr-2">
-          <b> ComServIp: </b>
+        <label for="comServIp" class="pt-2 mr-2">
+          <b> comServIp: </b>
         </label>
-        <input type="text" class="form-control" id="ComServIp" formControlName="ComServIp" placeholder="ComServIp"
+        <input type="text" class="form-control" id="comServIp" formControlName="comServIp" placeholder="comServIp"
                value="{{device.comServIp}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="ComServPort" class="pt-2 mr-2">
-          <b> ComServPort: </b>
+        <label for="comServPort" class="pt-2 mr-2">
+          <b> comServPort: </b>
         </label>
-        <input type="number" class="form-control" id="ComServPort" formControlName="ComServPort" placeholder="ComServPort"
+        <input type="number" class="form-control" id="comServPort" formControlName="comServPort" placeholder="comServPort"
                value="{{device.comServPort}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="Latitude" class="pt-2 mr-2">
-          <b> Latitude: </b>
+        <label for="latitude" class="pt-2 mr-2">
+          <b> latitude: </b>
         </label>
-        <input type="number" class="form-control" id="Latitude" formControlName="Latitude" placeholder="latitude"
+        <input type="number" class="form-control" id="latitude" formControlName="latitude" placeholder="latitude"
                value="{{device.latitude}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="Longitude" class="pt-2 mr-2">
-          <b> Longitude: </b>
+        <label for="longitude" class="pt-2 mr-2">
+          <b> longitude: </b>
         </label>
-        <input type="number" class="form-control" id="Longitude" formControlName="Longitude" placeholder="longitude"
+        <input type="number" class="form-control" id="longitude" formControlName="longitude" placeholder="longitude"
                value="{{device.longitude}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <label for="Address" class="pt-2 mr-2">
-          <b> Adresa: </b>
+        <label for="address" class="pt-2 mr-2">
+          <b> adresa: </b>
         </label>
-        <input type="text" class="form-control" id="Address" formControlName="Address" placeholder="Adresa"
+        <input type="text" class="form-control" id="address" formControlName="address" placeholder="adresa"
                value="{{device.address}}">
       </div>
     </div>
 
     <div class="form-group">
-      <label for="InUse" class="pt-2 mr-2"><b>Aktivní: </b></label>
-      <select class="form-control" id="InUse" formControlName="InUse">
+      <label for="inUse" class="pt-2 mr-2"><b>Aktivní: </b></label>
+      <select class="form-control" id="inUse" formControlName="inUse">
         <option>false</option>
         <option>true</option>
       </select>
@@ -91,11 +91,11 @@
 
     <div class="form-group">
       <div class="input-group mb-2">
-      <textarea type="text" class="form-control" id="Description" formControlName="Description" placeholder="Popis"
+      <textarea type="text" class="form-control" id="description" formControlName="description" placeholder="Popis"
                 value="{{device.description}}"></textarea>
       </div>
     </div>
-    <div class="form-group" id="Module">
+    <div class="form-group" id="module">
       <h3>Moduly:</h3>
       <hr>
       <div class="input-group" *ngFor="let module of device.module">
@@ -111,7 +111,7 @@
     </div>
 
     <div class="form-group">
-      <select (click)="selectChangeHandler($event)" class="form-control" id="Connection" required>
+      <select (click)="selectChangeHandler($event)" class="form-control" id="connection" required>
         <option value=""> - Připojení -</option>
         <option value="lora"> LoRa</option>
         <option value="wifi"> Wifi</option>
@@ -123,7 +123,7 @@
   </span>
     <div class="form-group" *ngIf="connectionOption==='lora'">
       <div class="input-group mb-2">
-        <input type="text" class="form-control" id="LoRaGateway" placeholder="LoRa Gateway">
+        <input type="text" class="form-control" id="loRaGateway" placeholder="LoRa Gateway">
       </div>
       <small class="form-text text-muted">např. https://console.thethingsnetwork.org/gateways/..</small>
     </div>

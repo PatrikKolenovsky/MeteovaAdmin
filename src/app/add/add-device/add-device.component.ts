@@ -25,15 +25,15 @@ export class AddDeviceComponent implements OnInit {
   ) {
 
     this.addDeviceForm = this.fb.group({
-      DeviceName: [''],
-      Ip: [''],
-      Port: [],
-      ComServIp: [''],
-      ComServPort: [],
-      Latitude: [],
-      Longitude: [],
-      Address: [''],
-      Description: [''],
+      deviceName: [''],
+      ip: [''],
+      port: [],
+      comServIp: [''],
+      comServPort: [],
+      latitude: [],
+      longitude: [],
+      address: [''],
+      description: [''],
     });
   }
 

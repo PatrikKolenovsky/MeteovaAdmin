@@ -1,48 +1,48 @@
 <form class="ml-3 col-6" [formGroup]="addDeviceForm" (ngSubmit)="submitForm()">
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="DeviceName" formControlName="DeviceName" placeholder="Název zařízení">
+      <input type="text" class="form-control" id="deviceName" formControlName="deviceName" placeholder="Název zařízení">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="Ip" formControlName="Ip" placeholder="Ip adresa">
+      <input type="text" class="form-control" id="ip" formControlName="ip" placeholder="Ip adresa">
     </div>
     <small class="form-text text-muted">Např. 127.0.0.0</small>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="number" class="form-control" id="Port" formControlName="Port" placeholder="Port">
+      <input type="number" class="form-control" id="port" formControlName="port" placeholder="Port">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="ComServIp" formControlName="ComServIp" placeholder="ComServIp">
+      <input type="text" class="form-control" id="comServIp" formControlName="comServIp" placeholder="ComServIp">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="number" class="form-control" id="ComServPort" formControlName="ComServPort" placeholder="ComServPort">
+      <input type="number" class="form-control" id="comServPort" formControlName="comServPort" placeholder="ComServPort">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="number" class="form-control" id="Latitude" formControlName="Latitude" placeholder="Latitude">
+      <input type="number" class="form-control" id="latitude" formControlName="latitude" placeholder="Latitude">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="number" class="form-control" id="Longitude" formControlName="Longitude" placeholder="Longitude">
+      <input type="number" class="form-control" id="longitude" formControlName="longitude" placeholder="Longitude">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="Address" formControlName="Address" placeholder="Adresa">
+      <input type="text" class="form-control" id="address" formControlName="address" placeholder="Adresa">
     </div>
   </div>
   <div class="form-group">
     <div class="input-group mb-2">
-      <textarea type="text" class="form-control" id="Description" formControlName="Description" placeholder="Popis"></textarea>
+      <textarea type="text" class="form-control" id="description" formControlName="description" placeholder="Popis"></textarea>
     </div>
   </div>
   <div class="form-group">
@@ -59,7 +59,7 @@
   </div>
 
   <div class="form-group">
-    <select (click)="selectChangeHandler($event)" class="form-control" id="Connection" required>
+    <select (click)="selectChangeHandler($event)" class="form-control" id="connection" required>
       <option value=""> - Připojení -</option>
       <option value="lora"> LoRa</option>"
       <option value="wifi"> Wifi</option>"
@@ -71,7 +71,7 @@
   </span>
   <div class="form-group" *ngIf="connectionOption==='lora'">
     <div class="input-group mb-2">
-      <input type="text" class="form-control" id="LoRaGateway" placeholder="LoRa Gateway">
+      <input type="text" class="form-control" id="loRaGateway" placeholder="LoRa Gateway">
     </div>
     <small class="form-text text-muted">např. https://console.thethingsnetwork.org/gateways/..</small>
   </div>
