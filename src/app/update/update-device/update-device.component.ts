@@ -3,13 +3,14 @@ import {Device} from '../../model/device.model';
 import {DeviceService} from '../../services/device.service';
 import {Module} from '../../model/module';
 import {ModuleService} from '../../services/module.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-update-device',
   templateUrl: './update-device.component.html',
   styleUrls: ['./update-device.component.css']
 })
-export class UpdateDeviceComponent implements OnInit {
+export class UpdateDeviceComponent implements OnInit{
   @Input() activeDeviceId: number;
   @Output() messageEvent = new EventEmitter<string>();
 
@@ -17,16 +18,24 @@ export class UpdateDeviceComponent implements OnInit {
   connectionOption = '';
   device: Device;
   moduleData: Array<Module> = [];
+  updateDeviceForm: FormGroup;
+  loaded = false;
 
-  constructor(private deviceService: DeviceService, private moduleService: ModuleService) {
+  constructor(private deviceService: DeviceService, private moduleService: ModuleService, public fb: FormBuilder) {
+    this.updateDeviceForm = this.fb.group(
+      {
+        // Module: [''],
+      }
+    );
   }
 
-  ngOnInit(): void {
+  setComponentData(deviceCallback, moduleCallback): void {
     this.deviceService.read(this.activeDeviceId)
       .subscribe(
         (device: Device) => this.device = device,
         (error) => console.log(error),
         () => {
+          deviceCallback();
         }
       );
 
@@ -35,8 +44,28 @@ export class UpdateDeviceComponent implements OnInit {
         (moduleData: Array<Module>) => this.moduleData = moduleData,
         (error) => console.log(error),
         () => {
+          moduleCallback();
         }
       );
+    this.loaded = true;
+  }
+
+  ngOnInit(): void {
+    this.setComponentData(() => {
+      this.updateDeviceForm = this.fb.group({
+        DeviceName: [this.device.deviceName],
+        Ip: [this.device.ip],
+        Port: [this.device.port],
+        ComServIp: [this.device.comServIp],
+        ComServPort: [this.device.comServPort],
+        Latitude: [this.device.latitude],
+        Longitude: [this.device.longitude],
+        Address: [this.device.address],
+        Description: [this.device.description],
+      });
+    }, () => {
+      // Module: [''],
+    });
   }
 
   selectChangeHandler(event: any): void {
@@ -46,5 +75,9 @@ export class UpdateDeviceComponent implements OnInit {
   setActiveContent(ActiveContent, contentType): void {
     this.Content = contentType + ActiveContent;
     this.messageEvent.emit(this.Content);
+  }
+
+  submitForm(): void {
+    console.log('submit');
   }
 }

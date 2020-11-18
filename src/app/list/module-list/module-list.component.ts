@@ -33,6 +33,7 @@ export class ModuleListComponent implements OnInit {
     if (id) {
       Content = Content + '?id=' + id;
     }
+
     this.Content = Content;
     this.messageEvent.emit(this.Content);
   }

@@ -16,9 +16,7 @@ export class UpdateModuleComponent implements OnInit {
   module: Module;
   moduleTypeData: Array<ModuleType> = [];
 
-  constructor(private moduleService: ModuleService, private moduleTypeService: ModuleTypeService) { }
-
-  ngOnInit(): void {
+  constructor(private moduleService: ModuleService, private moduleTypeService: ModuleTypeService) {
     this.moduleService.read(this.activeModuleId)
       .subscribe(
         (module: Module) => this.module = module,
@@ -34,6 +32,10 @@ export class UpdateModuleComponent implements OnInit {
         () => {
         }
       );
+  }
+
+  ngOnInit(): void {
+
   }
 
 }

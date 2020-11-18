@@ -20,6 +20,7 @@ export class AppComponent {
       $event = split[0];
       this.ActiveObjectId = Number(split[1]);
     }
+
     this.setActiveContent($event);
   }
 

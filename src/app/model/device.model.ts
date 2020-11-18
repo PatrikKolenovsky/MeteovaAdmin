@@ -6,6 +6,7 @@ export class Device {
   deviceName: string | null = null;
   ip: string | null = null;
   port: number | null = null;
+  comServIp: string | null = null;
   comServPort: number | null = null;
   inUse: boolean | null = null;
   description: string | null = null;
