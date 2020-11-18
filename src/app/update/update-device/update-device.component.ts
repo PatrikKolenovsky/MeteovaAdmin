@@ -4,6 +4,7 @@ import {DeviceService} from '../../services/device.service';
 import {Module} from '../../model/module';
 import {ModuleService} from '../../services/module.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {isAsciiLetter} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-update-device',
@@ -61,6 +62,7 @@ export class UpdateDeviceComponent implements OnInit{
         Latitude: [this.device.latitude],
         Longitude: [this.device.longitude],
         Address: [this.device.address],
+        InUse: [this.device.inUse],
         Description: [this.device.description],
       });
     }, () => {
@@ -73,11 +75,17 @@ export class UpdateDeviceComponent implements OnInit{
   }
 
   setActiveContent(ActiveContent, contentType): void {
-    this.Content = contentType + ActiveContent;
+    this.Content = ActiveContent + contentType;
     this.messageEvent.emit(this.Content);
   }
 
   submitForm(): void {
-    console.log('submit');
+    this.postForm(() => {
+      this.setActiveContent('device', '');
+    }, this.updateDeviceForm.value);
+  }
+
+  postForm(setActiveContent, formValues): void {
+    this.deviceService.update(() => { setActiveContent(); }, formValues, this.activeDeviceId);
   }
 }

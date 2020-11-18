@@ -3,7 +3,6 @@ import {RestApiService} from './rest-api.service';
 import {Device} from '../model/device.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {ok} from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +28,24 @@ export class DeviceService {
       (error) => {
         console.log('request is Bad : msg' + error.toString());
         alert('Chyba při vytváření zařízení');
+        return throwError(error);
+      }
+    );
+  }
+
+  update(callback, input: any, id): any {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    this.http.put(this.HTTP_API_PATH + '/' + id, input, httpOptions).subscribe(
+      (res) => {
+        callback();
+        return res;
+      },
+      (error) => {
+        console.log('request is Bad : msg' + error.toString());
+        alert('Chyba při úpravě zařízení');
         return throwError(error);
       }
     );

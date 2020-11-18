@@ -1,38 +1,94 @@
 <div *ngIf="loaded===true">
   <form *ngIf="device" class="ml-3 col-6" [formGroup]="updateDeviceForm" (ngSubmit)="submitForm()">
     <div class="form-group">
+      <b>ID:</b> {{device.deviceId}}
+    </div>
+    <div class="form-group">
       <div class="input-group mb-2">
-        <input type="text" class="form-control" id="DeviceName" formControlName="DeviceName"
+        <label for="DeviceName" class="pt-2 mr-2">
+          <b> Název zařízení: </b>
+        </label>
+        <input type="text"
+               class="form-control"
+               id="DeviceName"
+               formControlName="DeviceName"
                placeholder="Název zařízení"
-               value="{{device.deviceId}}">
+               value="{{device.deviceName}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
+        <label for="Ip" class="pt-2 mr-2">
+          <b> Ip adresa: </b>
+        </label>
         <input type="text" class="form-control" id="Ip" formControlName="Ip" placeholder="Ip adresa"
-               value="{{device.ip}}">
+                                       value="{{device.ip}}">
       </div>
       <small class="form-text text-muted">Např. 127.0.0.0</small>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
-        <input type="text" class="form-control" id="Port" formControlName="Port" placeholder="Port"
+        <label for="Port" class="pt-2 mr-2">
+          <b> Port: </b>
+        </label>
+        <input type="number" class="form-control" id="Port" formControlName="Port" placeholder="Port"
                value="{{device.port}}">
       </div>
     </div>
     <div class="form-group">
       <div class="input-group mb-2">
+        <label for="ComServIp" class="pt-2 mr-2">
+          <b> ComServIp: </b>
+        </label>
         <input type="text" class="form-control" id="ComServIp" formControlName="ComServIp" placeholder="ComServIp"
                value="{{device.comServIp}}">
       </div>
     </div>
     <div class="form-group">
-
       <div class="input-group mb-2">
-        <input type="text" class="form-control" id="ComServPort" formControlName="ComServPort" placeholder="ComServPort"
+        <label for="ComServPort" class="pt-2 mr-2">
+          <b> ComServPort: </b>
+        </label>
+        <input type="number" class="form-control" id="ComServPort" formControlName="ComServPort" placeholder="ComServPort"
                value="{{device.comServPort}}">
       </div>
     </div>
+    <div class="form-group">
+      <div class="input-group mb-2">
+        <label for="Latitude" class="pt-2 mr-2">
+          <b> Latitude: </b>
+        </label>
+        <input type="number" class="form-control" id="Latitude" formControlName="Latitude" placeholder="latitude"
+               value="{{device.latitude}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group mb-2">
+        <label for="Longitude" class="pt-2 mr-2">
+          <b> Longitude: </b>
+        </label>
+        <input type="number" class="form-control" id="Longitude" formControlName="Longitude" placeholder="longitude"
+               value="{{device.longitude}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group mb-2">
+        <label for="Address" class="pt-2 mr-2">
+          <b> Adresa: </b>
+        </label>
+        <input type="text" class="form-control" id="Address" formControlName="Address" placeholder="Adresa"
+               value="{{device.address}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="InUse" class="pt-2 mr-2"><b>Aktivní: </b></label>
+      <select class="form-control" id="InUse" formControlName="InUse">
+        <option>false</option>
+        <option>true</option>
+      </select>
+    </div>
+
     <div class="form-group">
       <div class="input-group mb-2">
       <textarea type="text" class="form-control" id="Description" formControlName="Description" placeholder="Popis"
@@ -63,7 +119,7 @@
     </div>
 
     <span *ngIf="connectionOption==='wifi'">
-    <small class="form-text text-muted">Bude vygenerován soubor ke stažení</small>
+    <small class="form-text text-muted">Soubor ke stažení zde (TODO)</small>
   </span>
     <div class="form-group" *ngIf="connectionOption==='lora'">
       <div class="input-group mb-2">
