@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ModuleType} from '../../model/module-type';
 import {ModuleTypeService} from '../../services/module-type.service';
+import {ModuleService} from '../../services/module.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-add-module',
@@ -10,8 +12,17 @@ import {ModuleTypeService} from '../../services/module-type.service';
 export class AddModuleComponent implements OnInit {
 
   moduleTypeData: Array<ModuleType> = [];
+  addModuleForm: FormGroup;
+  Content = '';
+  @Output() messageEvent = new EventEmitter<string>();
 
-  constructor(private moduleTypeService: ModuleTypeService) { }
+  constructor(private moduleTypeService: ModuleTypeService, private moduleService: ModuleService, public fb: FormBuilder) {
+    this.addModuleForm = this.fb.group({
+      name: [],
+      moduleTypeId: [],
+      description: [],
+    });
+  }
 
   ngOnInit(): void {
     this.moduleTypeService.readAll()
@@ -23,4 +34,20 @@ export class AddModuleComponent implements OnInit {
       );
   }
 
+  setActiveContent(ActiveContent, contentType): void {
+    this.Content = ActiveContent + contentType;
+    this.messageEvent.emit(this.Content);
+  }
+
+  submitForm(): void {
+    this.postForm(() => {
+      this.setActiveContent('module', '');
+    }, this.addModuleForm.value);
+  }
+
+  postForm(setActiveContent, formValues): void {
+    this.moduleService.create(() => {
+      setActiveContent();
+    }, formValues);
+  }
 }

@@ -12,8 +12,22 @@ export class ModuleService {
   HTTP_API_PATH = RestApiService.HTTP_API_PATH + 'modules';
   constructor(private http: HttpClient) { }
 
-  create(input: any): void {
-    this.http.post<any>(this.HTTP_API_PATH, {input}).subscribe();
+  create(callback, input: any): void {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    this.http.post(this.HTTP_API_PATH, input, httpOptions).subscribe(
+      (res) => {
+        callback();
+        return res;
+      },
+      (error) => {
+        console.log('request is Bad : msg' + JSON.stringify(error));
+        alert('Chyba při vytváření modulu');
+        return throwError(error);
+      }
+    );
   }
 
   update(callback, input: any, id): any {

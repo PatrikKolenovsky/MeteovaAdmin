@@ -15,10 +15,10 @@ import { UpdateModuleTypeComponent } from './update/update-module-type/update-mo
 import { UpdateDeviceComponent } from './update/update-device/update-device.component';
 import { UpdateUserComponent } from './update/update-user/update-user.component';
 import { UpdateModuleComponent } from './update/update-module/update-module.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { MakerListComponent } from './list/maker-list/maker-list.component';
 import { AddMakerComponent } from './add/add-maker/add-maker.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
