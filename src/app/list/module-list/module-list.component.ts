@@ -38,4 +38,8 @@ export class ModuleListComponent implements OnInit {
     this.messageEvent.emit(this.Content);
   }
 
+  deleteById(id): void {
+    this.moduleService.delete(id);
+  }
+
 }
