@@ -37,4 +37,8 @@ export class ModuleTypeComponent implements OnInit {
     this.Content = Content;
     this.messageEvent.emit(this.Content);
   }
+
+  deleteById(id): void {
+    this.moduleTypeService.delete(id);
+  }
 }

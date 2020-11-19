@@ -36,7 +36,6 @@ export class ModuleTypeService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-    console.log(JSON.stringify(input));
     this.http.put(this.HTTP_API_PATH + '/' + id, input, httpOptions).subscribe(
       (res) => {
         callback();
