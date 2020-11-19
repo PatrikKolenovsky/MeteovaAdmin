@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Envi} from '../../model/envi';
+import {Device} from '../../model/device.model';
+import {EnviService} from '../../services/envi.service';
 
 @Component({
   selector: 'app-envi-list',
@@ -13,9 +15,16 @@ export class EnviListComponent implements OnInit {
   Content = '';
   enviData: Array<Envi> = [];
 
-  constructor() { }
+  constructor(private enviService: EnviService) { }
 
   ngOnInit(): void {
+    this.enviService.readAll()
+      .subscribe(
+        (enviData: Array<Envi>) => this.enviData = enviData,
+        (error) => console.log(error),
+        () => {
+        }
+      );
   }
 
 }
