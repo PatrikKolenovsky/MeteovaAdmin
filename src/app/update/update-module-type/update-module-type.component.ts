@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ModuleType} from '../../model/module-type';
 import {ModuleTypeService} from '../../services/module-type.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Maker} from '../../model/maker';
+import {MakerService} from '../../services/maker.service';
 
 @Component({
   selector: 'app-update-module-type',
@@ -17,8 +19,9 @@ export class UpdateModuleTypeComponent implements OnInit {
   moduleType: ModuleType;
   updateModuleTypeForm: FormGroup;
   loaded = false;
+  makerData: Array<Maker> = [];
 
-  constructor(private moduleTypeService: ModuleTypeService, public fb: FormBuilder) {
+  constructor(private moduleTypeService: ModuleTypeService, private makerService: MakerService, public fb: FormBuilder) {
     this.updateModuleTypeForm = this.fb.group({});
   }
 
@@ -41,7 +44,13 @@ export class UpdateModuleTypeComponent implements OnInit {
           moduleTypeCallback();
         }
       );
-
+    this.makerService.readAll()
+      .subscribe(
+        (makerData: Array<Maker>) => this.makerData = makerData,
+        (error) => console.log(error),
+        () => {
+        }
+      );
     this.loaded = true;
   }
 

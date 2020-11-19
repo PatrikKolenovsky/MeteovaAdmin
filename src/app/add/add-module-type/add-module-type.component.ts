@@ -46,7 +46,6 @@ export class AddModuleTypeComponent implements OnInit {
   }
 
   postForm(setActiveContent, formValues): void {
-    alert(JSON.stringify(formValues));
     this.moduleTypeService.create(() => {
       setActiveContent();
     }, formValues);
