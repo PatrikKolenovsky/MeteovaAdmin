@@ -86,7 +86,7 @@
           <app-add-module (messageEvent)="receiveMessage($event)"></app-add-module>
         </div>
         <div *ngIf="ActiveContent == 'module_type_add'">
-          <app-add-module-type></app-add-module-type>
+          <app-add-module-type (messageEvent)="receiveMessage($event)"></app-add-module-type>
         </div>
         <div *ngIf="ActiveContent == 'users_update'">
           <app-update-user></app-update-user>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {RestApiService} from './rest-api.service';
 import {ModuleType} from '../model/module-type';
 
@@ -13,8 +13,22 @@ export class ModuleTypeService {
   HTTP_API_PATH = RestApiService.HTTP_API_PATH + 'moduletype';
   constructor(private http: HttpClient) { }
 
-  create(input: any): void {
-    this.http.post<any>(this.HTTP_API_PATH, {input}).subscribe();
+  create(callback, input: any): void {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    this.http.post(this.HTTP_API_PATH, input, httpOptions).subscribe(
+      (res) => {
+        callback();
+        return res;
+      },
+      (error) => {
+        console.log('request is Bad : msg' + JSON.stringify(error));
+        alert('Chyba při vytváření modulu');
+        return throwError(error);
+      }
+    );
   }
 
   delete(id: number): void {

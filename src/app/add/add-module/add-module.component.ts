@@ -41,7 +41,7 @@ export class AddModuleComponent implements OnInit {
 
   submitForm(): void {
     this.postForm(() => {
-      this.setActiveContent('module', '');
+      this.setActiveContent('_module', '');
     }, this.addModuleForm.value);
   }
 
