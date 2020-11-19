@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="col-2">
-              <button *ngIf="ActiveContentPostTitle ==''" class="btn btn-success"
+              <button *ngIf="ActiveContentPostTitle =='' && ActiveContent!= 'envi'" class="btn btn-success"
                       (click)="setActiveContent(ActiveContent + '_add')">
                 + Přidat
               </button>
