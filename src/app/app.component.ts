@@ -54,6 +54,11 @@ export class AppComponent {
         this.ActiveContentTitle = 'Moduly';
         this.ActiveContentPostTitle = '';
         break;
+      case 'maker':
+        this.ActiveContent = ActiveContent;
+        this.ActiveContentTitle = 'Výrobci';
+        this.ActiveContentPostTitle = '';
+        break;
       case 'module_type':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Typy modulů';
@@ -79,6 +84,11 @@ export class AppComponent {
         this.ActiveContentTitle = 'Moduly ';
         this.ActiveContentPostTitle = 'Přidat modul';
         break;
+      case 'maker_add':
+        this.ActiveContent = ActiveContent;
+        this.ActiveContentTitle = 'Výrobci ';
+        this.ActiveContentPostTitle = 'Přidat výrobce';
+        break;
       case 'module_type_add':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Typy modulu';
@@ -98,6 +108,11 @@ export class AppComponent {
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Moduly ';
         this.ActiveContentPostTitle = 'Upravit modul';
+        break;
+      case 'maker_update':
+        this.ActiveContent = ActiveContent;
+        this.ActiveContentTitle = 'Výrobci ';
+        this.ActiveContentPostTitle = 'Upravit výrobce';
         break;
       case 'module_type_update':
         this.ActiveContent = ActiveContent;
