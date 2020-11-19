@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ModuleType} from '../../model/module-type';
 import {ModuleTypeService} from '../../services/module-type.service';
 import {Device} from '../../model/device.model';
@@ -6,14 +6,13 @@ import {Module} from '../../model/module';
 import {DeviceService} from '../../services/device.service';
 import {ModuleService} from '../../services/module.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Variable} from '../../model/variable';
-import {isAsciiLetter} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-update-module',
   templateUrl: './update-module.component.html',
   styleUrls: ['./update-module.component.css']
 })
+
 export class UpdateModuleComponent implements OnInit {
   @Input() activeModuleId: number;
   @Output() messageEvent = new EventEmitter<string>();
@@ -22,7 +21,6 @@ export class UpdateModuleComponent implements OnInit {
   module: Module;
   moduleTypeData: Array<ModuleType> = [];
   deviceData: Array<Device> = [];
-  activeDevice: Device;
   updateModuleForm: FormGroup;
   loaded = false;
 
@@ -82,15 +80,6 @@ export class UpdateModuleComponent implements OnInit {
   setActiveContent(ActiveContent, contentType): void {
     this.Content = ActiveContent + contentType;
     this.messageEvent.emit(this.Content);
-  }
-
-  setActiveDevice(): void {
-    // this.deviceData.forEach( (device) => {
-    //   if (device.deviceId === this.module.deviceId) {
-    //     alert('Find');
-    //     this.activeDevice = device;
-    //   }
-    // });
   }
 
   submitForm(): void {
