@@ -26,8 +26,8 @@ export class ModuleTypeListComponent implements OnInit {
       );
   }
 
-  setActiveContent(ActiveContent, id): void {
-    let Content = 'module_type' + ActiveContent;
+  setActiveContent(Content, ActiveContent, id): void {
+    Content = Content + ActiveContent;
     if (id) {
       Content = Content + '?id=' + id;
     }
