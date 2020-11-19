@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Device} from '../../model/device.model';
 import {Module} from '../../model/module';
-import {DeviceService} from '../../services/device.service';
 import {ModuleService} from '../../services/module.service';
 
 @Component({

@@ -1,1 +1,25 @@
-<p>maker-list works!</p>
+<table class="table" *ngIf="makerData">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Název</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let maker of makerData">
+    <th scope="row">{{maker.makerId}}</th>
+    <td>{{maker.name}}</td>
+    <td>
+      <div class="btn btn-danger mr-3" (click)="deleteById(maker.makerId)">smazat</div>
+      <div class="btn btn-primary" (click)="setActiveContent('_update', 'maker', maker.makerId)">upravit</div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div *ngIf="!makerData">
+  <p>
+    Žádne data k dispozici
+  </p>
+</div>

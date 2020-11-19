@@ -27,7 +27,6 @@
              class="list-group-item list-group-item-action text-white bg-primary">Zařízení</a>
           <a *ngIf="!ActiveContent.includes('device')" (click)="setActiveContent('device')"
              class="list-group-item list-group-item-action bg-light">Zařízení</a>
-
           <a *ngIf="ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
              class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
           <a *ngIf="!ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
@@ -80,6 +79,9 @@
         <div *ngIf="ActiveContent == '_module'">
           <app-module-list (messageEvent)="receiveMessage($event)"></app-module-list>
         </div>
+        <div *ngIf="ActiveContent == 'maker'">
+          <app-maker-list (messageEvent)="receiveMessage($event)"></app-maker-list>
+        </div>
         <div *ngIf="ActiveContent == 'module_type'">
           <app-module-type-list (messageEvent)="receiveMessage($event)"></app-module-type-list>
         </div>
@@ -95,6 +97,9 @@
         <div *ngIf="ActiveContent == '_module_add'">
           <app-add-module (messageEvent)="receiveMessage($event)"></app-add-module>
         </div>
+        <div *ngIf="ActiveContent == 'maker_add'">
+          <app-add-maker (messageEvent)="receiveMessage($event)"></app-add-maker>
+        </div>
         <div *ngIf="ActiveContent == 'module_type_add'">
           <app-add-module-type (messageEvent)="receiveMessage($event)"></app-add-module-type>
         </div>
@@ -104,6 +109,10 @@
         <div *ngIf="ActiveContent == 'device_update'">
           <app-update-device [activeDeviceId]=ActiveObjectId
                              (messageEvent)="receiveMessage($event)"></app-update-device>
+        </div>
+        <div *ngIf="ActiveContent == 'maker_update'">
+          <app-update-maker [activeMakerId]=ActiveObjectId
+                             (messageEvent)="receiveMessage($event)"></app-update-maker>
         </div>
         <div *ngIf="ActiveContent == '_module_update'">
           <app-update-module [activeModuleId]=ActiveObjectId

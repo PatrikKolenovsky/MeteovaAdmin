@@ -20,6 +20,7 @@ import { MakerListComponent } from './list/maker-list/maker-list.component';
 import { AddMakerComponent } from './add/add-maker/add-maker.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { EnviListComponent } from './list/envi-list/envi-list.component';
+import { UpdateMakerComponent } from './update/update-maker/update-maker.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EnviListComponent } from './list/envi-list/envi-list.component';
     DeviceListComponent,
     MakerListComponent,
     AddMakerComponent,
-    EnviListComponent
+    EnviListComponent,
+    UpdateMakerComponent
   ],
   imports: [
     BrowserModule,
