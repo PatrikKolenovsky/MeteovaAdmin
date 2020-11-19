@@ -59,6 +59,11 @@ export class AppComponent {
         this.ActiveContentTitle = 'Typy modulů';
         this.ActiveContentPostTitle = '';
         break;
+      case 'envi':
+        this.ActiveContent = ActiveContent;
+        this.ActiveContentTitle = 'Envitech';
+        this.ActiveContentPostTitle = '';
+        break;
       case 'users_add':
         this.ActiveContent = ActiveContent;
         this.ActiveContentTitle = 'Uživatelé';

@@ -32,13 +32,16 @@
              class="list-group-item list-group-item-action text-white bg-primary">Moduly</a>
           <a *ngIf="!ActiveContent.includes('_module')" (click)="setActiveContent('_module')"
              class="list-group-item list-group-item-action bg-light">Moduly</a>
-
           <a *ngIf="ActiveContent.includes('module_type')" (click)="setActiveContent('module_type')"
              class="list-group-item list-group-item-action text-white bg-primary">Typy
             modulů</a>
           <a *ngIf="!ActiveContent.includes('module_type')" (click)="setActiveContent('module_type')"
-             class="list-group-item list-group-item-action bg-light">Type
+             class="list-group-item list-group-item-action bg-light">Typy
             modulů</a>
+          <a *ngIf="ActiveContent.includes('envi')" (click)="setActiveContent('envi')"
+             class="list-group-item list-group-item-action text-white bg-primary">EnviTech</a>
+          <a *ngIf="!ActiveContent.includes('envi')" (click)="setActiveContent('envi')"
+             class="list-group-item list-group-item-action bg-light">EnviTech</a>
         </div>
       </div>
     </div>
@@ -74,7 +77,10 @@
           <app-module-list (messageEvent)="receiveMessage($event)"></app-module-list>
         </div>
         <div *ngIf="ActiveContent == 'module_type'">
-          <app-module-type (messageEvent)="receiveMessage($event)"></app-module-type>
+          <app-module-type-list (messageEvent)="receiveMessage($event)"></app-module-type-list>
+        </div>
+        <div *ngIf="ActiveContent == 'envi'">
+          <app-envi-list (messageEvent)="receiveMessage($event)"></app-envi-list>
         </div>
         <div *ngIf="ActiveContent == 'users_add'">
           <app-add-user></app-add-user>

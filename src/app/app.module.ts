@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeviceListComponent } from './list/device-list/device-list.component';
 import { ModuleListComponent } from './list/module-list/module-list.component';
-import { ModuleTypeComponent } from './list/module-type-list/module-type.component';
+import { ModuleTypeListComponent } from './list/module-type-list/module-type-list.component';
 import { UserListComponent } from './list/user-list/user-list.component';
 import { AddUserComponent } from './add/add-user/add-user.component';
 import { AddDeviceComponent } from './add/add-device/add-device.component';
@@ -19,12 +19,13 @@ import { HttpClientModule} from '@angular/common/http';
 import { MakerListComponent } from './list/maker-list/maker-list.component';
 import { AddMakerComponent } from './add/add-maker/add-maker.component';
 import { ReactiveFormsModule} from '@angular/forms';
+import { EnviListComponent } from './list/envi-list/envi-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModuleListComponent,
-    ModuleTypeComponent,
+    ModuleTypeListComponent,
     UserListComponent,
     AddUserComponent,
     AddDeviceComponent,
@@ -36,7 +37,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     UpdateModuleComponent,
     DeviceListComponent,
     MakerListComponent,
-    AddMakerComponent
+    AddMakerComponent,
+    EnviListComponent
   ],
   imports: [
     BrowserModule,

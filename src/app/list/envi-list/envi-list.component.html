@@ -1,0 +1,37 @@
+<table class="table" *ngIf="enviData">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Zaznamenáno</th>
+    <th scope="col">nO2</th>
+    <th scope="col">noisEAVG</th>
+    <th scope="col">noisEMAX</th>
+    <th scope="col">pM01</th>
+    <th scope="col">pM10</th>
+    <th scope="col">pM25</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let enviRecord of enviData">
+    <th scope="row">{{enviRecord.deviceId}}</th>
+    <td>{{enviRecord.recordedTime}}</td>
+    <td>{{enviRecord.nO2}}</td>
+    <td>{{enviRecord.noisEAVG}}</td>
+    <td>{{enviRecord.noisEMAX}}</td>
+    <td>{{enviRecord.pM01}}</td>
+    <td>{{enviRecord.pM10}}</td>
+    <td>{{enviRecord.pM25}}</td>
+    <td>
+      <div class="btn btn-danger mr-3">
+        <!--           (click)="deleteById(moduleType.moduleTypeId)"-->
+        smazat
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div *ngIf="!enviData">
+  <p>
+    Žádne data k dispozici
+  </p>
+</div>

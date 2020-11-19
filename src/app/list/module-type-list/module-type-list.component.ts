@@ -1,15 +1,13 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ModuleService} from '../../services/module.service';
-import {Module} from '../../model/module';
 import {ModuleType} from '../../model/module-type';
 import {ModuleTypeService} from '../../services/module-type.service';
 
 @Component({
-  selector: 'app-module-type',
-  templateUrl: './module-type.component.html',
-  styleUrls: ['./module-type.component.css']
+  selector: 'app-module-type-list',
+  templateUrl: './module-type-list.component.html',
+  styleUrls: ['./module-type-list.component.css']
 })
-export class ModuleTypeComponent implements OnInit {
+export class ModuleTypeListComponent implements OnInit {
 
   @Output() messageEvent = new EventEmitter<string>();
 

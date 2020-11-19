@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModuleTypeComponent } from './module-type.component';
+import { EnviListComponent } from './envi-list.component';
 
-describe('ModuleTypeComponent', () => {
-  let component: ModuleTypeComponent;
-  let fixture: ComponentFixture<ModuleTypeComponent>;
+describe('EnviListComponent', () => {
+  let component: EnviListComponent;
+  let fixture: ComponentFixture<EnviListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModuleTypeComponent ]
+      declarations: [ EnviListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModuleTypeComponent);
+    fixture = TestBed.createComponent(EnviListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

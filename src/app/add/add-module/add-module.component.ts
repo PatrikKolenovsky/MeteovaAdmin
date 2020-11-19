@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ModuleType} from '../../model/module-type';
 import {ModuleTypeService} from '../../services/module-type.service';
 import {ModuleService} from '../../services/module.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {ModuleType} from '../../model/module-type';
 
 @Component({
   selector: 'app-add-module',
