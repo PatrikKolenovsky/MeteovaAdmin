@@ -40,7 +40,7 @@ export class UpdateDeviceComponent implements OnInit {
         }
       );
 
-    this.moduleService.readAll()
+    this.moduleService.readAllOtherModulesByDeviceId(this.activeDeviceId)
       .subscribe(
         (moduleData: Array<Module>) => this.moduleData = moduleData,
         (error) => console.log(error),

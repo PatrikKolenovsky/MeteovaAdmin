@@ -57,6 +57,10 @@ export class ModuleService {
     return this.http.get<Array<Module>>(this.HTTP_API_PATH);
   }
 
+  readAllOtherModulesByDeviceId(deviceId: number): any {
+    return this.http.get<Array<Module>>(this.HTTP_API_PATH + '/other/' + deviceId);
+  }
+
   read(id: number): Observable<Module> {
     return this.http.get<Module>(this.HTTP_API_PATH + '/' + id);
   }
