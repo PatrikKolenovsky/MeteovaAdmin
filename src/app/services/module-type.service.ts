@@ -31,8 +31,28 @@ export class ModuleTypeService {
     );
   }
 
+  update(callback, input: any, id): any {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+
+    console.log(JSON.stringify(input));
+    this.http.put(this.HTTP_API_PATH + '/' + id, input, httpOptions).subscribe(
+      (res) => {
+        callback();
+        return res;
+      },
+      (error) => {
+        console.log('request is Bad : msg' + JSON.stringify(error));
+        alert('Chyba při úpravě modulu');
+        return throwError(error);
+      }
+    );
+  }
+
+
   delete(id: number): void {
-    this.http.post<any>(this.HTTP_API_PATH, {id}).subscribe();
+    this.http.delete<any>(this.HTTP_API_PATH + '/' + id, ).subscribe();
   }
 
   readAll(): any {

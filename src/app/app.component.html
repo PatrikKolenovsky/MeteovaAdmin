@@ -100,7 +100,8 @@
                              (messageEvent)="receiveMessage($event)"></app-update-module>
         </div>
         <div *ngIf="ActiveContent == 'module_type_update'">
-          <app-update-module-type [activeModuleTypeId]=ActiveObjectId></app-update-module-type>
+          <app-update-module-type [activeModuleTypeId]=ActiveObjectId
+                                  (messageEvent)="receiveMessage($event)"></app-update-module-type>
         </div>
       </div>
     </div>
