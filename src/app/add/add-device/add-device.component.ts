@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Module} from '../../model/module';
 import {ModuleService} from '../../services/module.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Device} from '../../model/device.model';
 import {DeviceService} from '../../services/device.service';
 
 
@@ -20,7 +19,6 @@ export class AddDeviceComponent implements OnInit {
   addDeviceForm: FormGroup;
 
   constructor(private deviceService: DeviceService, private moduleService: ModuleService,
-              // private afs: AngularFirestore,
               public fb: FormBuilder
   ) {
 

@@ -5,10 +5,8 @@
     </div>
   </div>
   <div class="form-group">
-    <select class="form-control" id="makerID" formControlName="makerID" required>
-      <option value="0"> - Výrobce -</option>
-      <option value="1"> Nvidia</option>
-      <option value="2"> EA</option>
+    <select class="form-control" id="makerId" formControlName="makerId" required>
+      <option *ngFor="let maker of makerData" [defaultSelected]="maker" value="{{maker.makerId}}">{{maker.name}}</option>
     </select>
   </div>
   <div class="form-group">
