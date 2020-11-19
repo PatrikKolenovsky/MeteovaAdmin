@@ -1,8 +1,8 @@
 <div *ngIf="loaded===true">
   <form *ngIf="module" class="ml-3 col-6" [formGroup]="updateModuleForm" (ngSubmit)="submitForm()">
-    <!--    <div class="form-group">-->
-    <b>ID:</b> {{module.moduleId}}
-    <!--    </div>-->
+    <div class="form-group">
+      <b>ID:</b> {{module.moduleId}}
+    </div>
     <div class="form-group">
       <div class="input-group mb-2">
         <label for="name" class="pt-2 mr-2">
@@ -13,14 +13,11 @@
       </div>
     </div>
     <div class="form-group">
-      <b>Aktivní typ modulu:</b> {{module.moduleType.name}}
-    </div>
-    <!--    <div class="form-group">-->
-    <!--      <b>Aktivní device ID:</b> {{module.deviceId}}-->
-    <!--    </div>-->
+      <b>Aktivní device ID:</b> {{module.deviceId}}
+      </div>
     <div class="form-group">
       <label for="moduleTypeId">
-        <b>Typ modulu</b>
+        <b>Typ modulu:</b>
       </label>
       <select class="form-control" formControlName="moduleTypeId" id="moduleTypeId">
         <option
@@ -32,16 +29,20 @@
     </div>
     <div class="form-group">
       <label for="deviceId">
-        <b>Zařízení</b>
+        <b>Zařízení:</b>
       </label>
+      <!--          <div *ngIf="activeDevice"> {{activeDevice.deviceName}}-->
       <select class="form-control" formControlName="deviceId" id="deviceId">
-        <option *ngFor="let device of deviceData" value="{{device.deviceId}}">{{device.deviceName}}</option>
+        <option *ngFor="let device of deviceData" [defaultSelected]=device
+                value="{{device.deviceId}}">{{device.deviceName}}</option>
       </select>
     </div>
+    <small class="form-text text-muted">Pozor! Je automaticky nastaven poslední device ne ten aktivní</small>
     <div class="form-group">
+      <label for="description" class="pt-2 mr-2"><b>Popis:</b></label>
       <div class="input-group mb-2">
-      <textarea type="text" class="form-control" formControlName="description" id="description" placeholder="Popis"
-                value="{{module.description}}"></textarea>
+        <textarea type="text" class="form-control" formControlName="description" id="description" placeholder="Popis"
+                  value="{{module.description}}"></textarea>
       </div>
     </div>
     <div class="form-group">
