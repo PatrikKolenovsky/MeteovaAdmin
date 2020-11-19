@@ -68,7 +68,7 @@ export class UpdateModuleComponent implements OnInit {
       this.updateModuleForm = this.fb.group({
         moduleId: [this.module.moduleId],
         name: [this.module.name],
-        deviceId: [this.module.deviceId],
+        deviceId: [this.module.device.deviceId],
         description: [this.module.description],
         variable: [this.module.variable],
         moduleTypeId: [this.module.moduleType.moduleTypeId],
