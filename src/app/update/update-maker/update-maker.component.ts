@@ -14,6 +14,8 @@ export class UpdateMakerComponent implements OnInit {
   updateMakerForm: FormGroup;
   loaded = false;
   maker: Maker;
+  Content = '';
+
 
   constructor(private makerService: MakerService, public fb: FormBuilder) {
     this.updateMakerForm = this.fb.group({});
@@ -38,7 +40,6 @@ export class UpdateMakerComponent implements OnInit {
         makerId: [this.maker.makerId],
         name: [this.maker.name],
       });
-    }, () => {
     });
   }
 
