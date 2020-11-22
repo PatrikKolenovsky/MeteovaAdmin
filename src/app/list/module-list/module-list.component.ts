@@ -40,5 +40,4 @@ export class ModuleListComponent implements OnInit {
   deleteById(id): void {
     this.moduleService.delete(id);
   }
-
 }

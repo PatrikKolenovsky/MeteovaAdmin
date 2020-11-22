@@ -49,8 +49,20 @@ export class ModuleService {
   }
 
 
-  delete(id: number): void {
-    this.http.delete<any>(this.HTTP_API_PATH + '/' + id, ).subscribe();
+  delete(callback, id: number): void {
+    this.http.delete<any>(this.HTTP_API_PATH + '/' + id).subscribe(
+      () => {
+        callback();
+      },
+      (error) => {
+        console.log('request is Bad : msg' + error.toString());
+        alert('Chyba při mázání modulu');
+        throwError(error);
+      },
+      () => {
+
+      }
+    );
   }
 
   readAll(): any {

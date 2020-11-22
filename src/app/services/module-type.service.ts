@@ -49,10 +49,22 @@ export class ModuleTypeService {
     );
   }
 
+  delete(callback, id: number): void {
+    this.http.delete<any>(this.HTTP_API_PATH + '/' + id).subscribe(
+      () => {
+        callback();
+      },
+      (error) => {
+        console.log('request is Bad : msg' + error.toString());
+        alert('Chyba při mázání typu modulu');
+        throwError(error);
+      },
+      () => {
 
-  delete(id: number): void {
-    this.http.delete<any>(this.HTTP_API_PATH + '/' + id, ).subscribe();
+      }
+    );
   }
+
 
   readAll(): any {
     return this.http.get<Array<ModuleType>>(this.HTTP_API_PATH);
