@@ -40,7 +40,14 @@ export class DeviceListComponent implements OnInit {
   }
 
   deleteById(id): void {
-    this.deviceService.delete(id);
+    this.deviceService.delete(() => {this.removeFromList(id)}, id);
   }
 
+  removeFromList(id): void {
+    this.deviceData.forEach( (device, index) => {
+      if (device.deviceId === id) {
+        this.deviceData.splice(index);
+      }
+    });
+  }
 }
