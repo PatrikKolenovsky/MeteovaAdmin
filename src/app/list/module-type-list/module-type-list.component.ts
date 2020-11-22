@@ -37,6 +37,16 @@ export class ModuleTypeListComponent implements OnInit {
   }
 
   deleteById(id): void {
-    this.moduleTypeService.delete(id);
+    this.moduleTypeService.delete(() => {
+      this.removeFromList(id);
+    }, id);
+  }
+
+  removeFromList(id): void {
+    this.moduleTypeData.forEach((moduleType, index) => {
+      if (moduleType.moduleTypeId === id) {
+        this.moduleTypeData.splice(index);
+      }
+    });
   }
 }

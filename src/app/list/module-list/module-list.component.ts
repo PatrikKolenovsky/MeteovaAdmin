@@ -15,7 +15,8 @@ export class ModuleListComponent implements OnInit {
   Content = '';
   moduleData: Array<Module> = [];
 
-  constructor(private moduleService: ModuleService) { }
+  constructor(private moduleService: ModuleService) {
+  }
 
   ngOnInit(): void {
     this.moduleService.readAll()
@@ -38,6 +39,16 @@ export class ModuleListComponent implements OnInit {
   }
 
   deleteById(id): void {
-    this.moduleService.delete(id);
+    this.moduleService.delete(() => {
+      this.removeFromList(id);
+    }, id);
+  }
+
+  removeFromList(id): void {
+    this.moduleData.forEach((module, index) => {
+      if (module.moduleId === id) {
+        this.moduleData.splice(index);
+      }
+    });
   }
 }
