@@ -58,7 +58,7 @@ export class DeviceService {
       },
       (error) => {
         console.log('request is Bad : msg' + error.toString());
-        alert('Chyba při úpravě zařízení');
+        alert('Chyba při mázání zařízení');
         throwError(error);
       },
       () => {

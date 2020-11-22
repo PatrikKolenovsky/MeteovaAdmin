@@ -36,7 +36,15 @@ export class MakerListComponent implements OnInit {
   }
 
   deleteById(id): void {
-    this.makerService.delete(id);
+    this.makerService.delete(() => {this.removeFromList(id)}, id);
+  }
+
+  removeFromList(id): void {
+    this.makerData.forEach( (maker, index) => {
+      if (maker.makerId === id) {
+        this.makerData.splice(index);
+      }
+    });
   }
 
 }

@@ -49,9 +49,22 @@ export class MakerService {
   }
 
 
-  delete(id: number): void {
-    this.http.delete<any>(this.HTTP_API_PATH + '/' + id, ).subscribe();
+  delete(callback, id: number): void {
+    this.http.delete<any>(this.HTTP_API_PATH + '/' + id).subscribe(
+      () => {
+        callback();
+      },
+      (error) => {
+        console.log('request is Bad : msg' + error.toString());
+        alert('Chyba při mázání zařízení');
+        throwError(error);
+      },
+      () => {
+
+      }
+    );
   }
+
 
   readAll(): any {
     return this.http.get<Array<Maker>>(this.HTTP_API_PATH);
